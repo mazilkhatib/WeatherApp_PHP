@@ -62,7 +62,12 @@ background: #fafafa;  /* fallback for old browsers */
 <?php
 	$searchtext="";
 	require 'simple_html_dom.php';
-	$searchtext = $_POST["searchtext"];
+	if(isset($_POST["searchtext"])){
+		$searchtext = $_POST["searchtext"];
+	}
+	else{
+		$searchtext = "Mumbai";
+	}
 	$country_url1="https://www.weather-forecast.com/locations/";
 	$country_url2="/forecasts/latest";
 	$search_url=$country_url1.$searchtext.$country_url2;
